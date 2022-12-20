@@ -14,21 +14,48 @@ const minutesElement=document.getElementById("minutes");
 const hoursElement=document.getElementById("hours");
 const daysElement=document.getElementById("days");
 
+
+
 const finalDate = new Date("december 25 2022" );
 const finalDateMs= finalDate.getTime();
-console.log(finalDateMs);
-const today = new Date("december 20 2022");
-const todayMs= today.getTime();
-console.log(todayMs);
+// console.log(finalDateMs);
 
-const difference = finalDateMs - todayMs;
-console.log(difference); 
 
-const secondMs = 100;
-console.log(secondMs);
+
+
+
+// console.log(difference); 
+
+const secondMs = 1000;
+// console.log(secondMs);
 const minutesMs=60 * secondMs;
-console.log(minutesMs);
+// console.log(minutesMs);
 const hourMs= 60 * minutesMs;
-console.log(hourMs);
+// console.log(hourMs);
 const dayMs= 24 * hourMs;
-console.log(dayMs);
+// console.log(dayMs);
+
+
+const xmasTimer= setInterval(timer, 1000)
+
+function timer(){
+    const todayMs = new Date().getTime();
+    
+    const difference = finalDateMs - todayMs;
+
+    if(difference > 0){ 
+    daysElement.innerHTML=Math.floor(difference / dayMs);
+    hoursElement.innerHTML=Math.floor( (difference % dayMs) / hourMs );
+    minutesElement.innerHTML=Math.floor( ( difference % hourMs ) / minutesMs);
+    secondsElement.innerHTML=Math.floor( (difference % minutesMs) / secondMs);
+    }else{
+        clearInterval(timer);
+    }
+  
+
+
+}
+
+
+
+
