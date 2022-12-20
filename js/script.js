@@ -8,3 +8,27 @@
 // Quanti millisecondi mi separano dal Natale?
 // Esiste un oggetto JS in grado di gestire le date?
 // Esistono dei metodi per trasformare una data in millisecondi?
+
+const secondsElement=document.getElementById("seconds");
+const minutesElement=document.getElementById("minutes");
+const hoursElement=document.getElementById("hours");
+const daysElement=document.getElementById("days");
+
+const finalDate = new Date("december 25 2022" );
+const finalDateMs= finalDate.getTime();
+console.log(finalDateMs);
+const today = new Date("december 20 2022");
+const todayMs= today.getTime();
+console.log(todayMs);
+
+const difference = finalDateMs - todayMs;
+console.log(difference); 
+
+const secondMs = 100;
+console.log(secondMs);
+const minutesMs=60 * secondMs;
+console.log(minutesMs);
+const hourMs= 60 * minutesMs;
+console.log(hourMs);
+const dayMs= 24 * hourMs;
+console.log(dayMs);
